@@ -1,10 +1,6 @@
 export const NativeSpeechRecognition =
   typeof window !== "undefined" &&
-  (window.SpeechRecognition ||
-    window.webkitSpeechRecognition ||
-    window.mozSpeechRecognition ||
-    window.msSpeechRecognition ||
-    window.oSpeechRecognition);
+  (window.SpeechRecognition || window.webkitSpeechRecognition);
 
-export const isNative = (SpeechRecognition: any) =>
+export const isNative = (SpeechRecognition: unknown) =>
   SpeechRecognition === NativeSpeechRecognition;
