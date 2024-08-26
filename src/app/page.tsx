@@ -1,4 +1,6 @@
-import { Input } from "~/input";
+import Dictaphone from "~/dictaphone";
+import "regenerator-runtime/runtime";
+import { Suspense } from "react";
 
 export default function HomePage() {
   return (
@@ -8,7 +10,9 @@ export default function HomePage() {
           Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
         </h1>
 
-        <Input />
+        <Suspense>
+          <Dictaphone />
+        </Suspense>
       </div>
     </main>
   );
