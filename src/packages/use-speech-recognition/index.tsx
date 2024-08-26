@@ -92,10 +92,13 @@ export function useSpeechRecognition() {
     }
   }, [access]);
 
+  const resetTranscript = useCallback(() => setState({ transcript: "" }), []);
+
   const listen = useCallback(async () => {
     await requestMicrophoneAccess();
+    resetTranscript();
     recognitionRef.current?.start();
-  }, [requestMicrophoneAccess]);
+  }, [requestMicrophoneAccess, resetTranscript]);
 
   // Memoized function to stop listening
   const stop = useCallback(() => {
@@ -107,6 +110,7 @@ export function useSpeechRecognition() {
     isListening,
     isBrowserSupported,
     requestMicrophoneAccess,
+    resetTranscript,
     listen,
     stop,
   };
